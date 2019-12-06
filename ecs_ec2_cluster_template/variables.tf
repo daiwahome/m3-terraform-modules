@@ -92,6 +92,11 @@ variable "ec2_enable_monitoring" {
   description = "true to enable EC2 detailed monitoring. Recommend to enable in production."
 }
 
+variable "ec2_cloud_init_script" {
+  default = ""
+  description = "Rendered cloud-init script for EC2 UserData."
+}
+
 variable "autoscaling_max" {
   description = "Max instances (count of EC2 instance) of AutoScaling"
 }
@@ -148,4 +153,3 @@ variable "autoscaling_scaledown_min" {
   default = 0
   description = "Minimum instance count during autoscaling_scaledown_between_utc period."
 }
-

@@ -8,6 +8,11 @@ data "template_cloudinit_config" "main" {
     content_type = "text/x-shellscript"
     content      = data.template_file.cloud_init_script.rendered
   }
+
+  part {
+    content_type = "text/x-shellscript"
+    content      = var.ec2_cloud_init_script
+  }
 }
 
 data "template_file" "cloud_init_script" {
@@ -17,4 +22,3 @@ data "template_file" "cloud_init_script" {
     ecs_cluster_id = var.ecs_cluster_id
   }
 }
-
